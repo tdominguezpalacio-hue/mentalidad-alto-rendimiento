@@ -8,7 +8,6 @@ from urllib.parse import urlparse
 
 HOST = "0.0.0.0"
 PORT = int(os.environ.get("PORT", 8000))
-PDF_PATH = Path("Mentalidad_2025.pdf")
 CONTACT_PHONE = "+573142961072"
 CONTACT_EMAIL = "afgr840108@gmail.com"
 
