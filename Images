@@ -1,0 +1,24 @@
+def serve_image(self, image_path: Path):
+    if not image_path.exists():
+        self.send_response(404)
+        self.end_headers()
+        self.wfile.write(b"Imagen no encontrada")
+        return
+
+    suffix = image_path.suffix.lower()
+
+    content_type = {
+        ".jpg": "image/jpeg",
+        ".jpeg": "image/jpeg",
+        ".png": "image/png",
+        ".webp": "image/webp",
+        ".gif": "image/gif",
+        ".svg": "image/svg+xml",
+    }.get(suffix, "application/octet-stream")
+
+    self.send_response(200)
+    self.send_header("Content-Type", content_type)
+    self.end_headers()
+
+    with open(image_path, "rb") as f:
+        self.wfile.write(f.read())
