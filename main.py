@@ -6,8 +6,6 @@ from io import BytesIO
 from pathlib import Path
 from urllib.parse import urlparse
 
-from pypdf import PdfReader
-
 HOST = "0.0.0.0"
 PORT = int(os.environ.get("PORT", 8000))
 PDF_PATH = Path("Mentalidad_2025.pdf")
